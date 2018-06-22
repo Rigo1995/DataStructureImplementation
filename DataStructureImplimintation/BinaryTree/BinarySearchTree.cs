@@ -22,18 +22,57 @@ namespace DataStructureImplimintation
 
         public void Add(int data)
         {
-            Add(ref top, data);
-        }
-        
-        private void Add(ref Node n,int value)
-        {
+            if (top == null)
+            {
+                Node NewNode = new Node(data);
+                top = NewNode;
+                return;
+            }
+            Node currentnode = top;
+            bool added = false;
+            do
+            {
+                if (data < currentnode.data)
+                {
+                    if (currentnode.leftCar == null)
+                    {
+                        Node NewNode = new Node(data);
+                        currentnode.leftCar = NewNode;
+                        added = true;
+                    }
+                    else
+                    {
+                        currentnode = currentnode.leftCar;
+                    }
+                }
+                if (data >= currentnode.data)
+                {
+                    if (currentnode.rightCar == null)
+                    {
+                        Node newnode = new Node(data);
+                        currentnode.rightCar = newnode;
+                        added = true;
+                    }
+                    else
+                    {
+                        currentnode = currentnode.rightCar;
+                    }
+                }
+
+
+            } while (!added);
 
         }
         
-        public void Print( ref string newstring)
-        {
+        //private void Add(ref Node n,int value)
+        //{
 
-        }
+        //}
+        
+        //public void Print( ref string newstring)
+        //{
+
+        //}
 
 
    }
