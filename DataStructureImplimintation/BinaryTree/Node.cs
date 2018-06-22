@@ -8,7 +8,17 @@ namespace DataStructureImplimintation
 {
     public class Node
     {
-      
+        public Node leftMan;
+        public int data;
+        public Node rightWoman;
+
+        public Node(int data)
+        {
+            this.data = data;
+            leftMan= null;
+            rightWoman = null;
+
+        }
 
 
     }

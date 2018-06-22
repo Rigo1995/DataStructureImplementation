@@ -8,5 +8,6 @@ namespace DataStructureImplimintation
 {
     class BinaryTree
     {
+
     }
 }
