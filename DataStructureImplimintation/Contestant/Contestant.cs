@@ -14,18 +14,7 @@ namespace DataStructureImplimintation
         private string adress;
         private string registrationNumber;
 
-        public string FirstName
-        {
-            get
-            {
-                return firstName;
-            }
-            set
-            {
-                firstName = value;
-            }
-        }
-
+        public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Adress { get; set; }

@@ -10,6 +10,12 @@ namespace DataStructureImplimintation
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Search Binary Tree");
+            DataStructureImplimintation.BinaryTree binaryTree = new DataStructureImplimintation.BinaryTree();
+            binaryTree.();
+            Console.ReadLine();
+
+
         }
     }
 }

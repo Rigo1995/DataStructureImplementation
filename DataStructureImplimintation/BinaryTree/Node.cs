@@ -8,15 +8,15 @@ namespace DataStructureImplimintation
 {
     public class Node
     {
-        public Node leftCar;
+        public Node left;
         public int data;
-        public Node rightCar;
+        public Node right;
 
         public Node(int data)
         {
             this.data = data;
-            leftCar= null;
-            rightCar = null;
+            left= null;
+            right = null;
 
         }
 

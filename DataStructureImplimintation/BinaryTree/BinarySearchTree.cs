@@ -6,74 +6,111 @@ using System.Threading.Tasks;
 
 namespace DataStructureImplimintation
 {
-   public class BinaryTree
-   {
-       Node top;
+    public class BinaryTree
+    {
+        Node current;
+        Node root;
+        public List<string> results = new List<string>();
 
-       public BinaryTree()
-       {
-           top = null;
-       }
+        public BinaryTree()
+        {
+            root = null;
+        }
 
-       public BinaryTree(int data)
-       {
-            top = new Node(data);
-       }
+        public BinaryTree(int data)
+        {
+            root = new Node(data);
+        }
+
+
+        public void Search()
+        { try 
+            {
+                bool search = searchTree(root, int.Parse(userImput("enter a  number to search")));
+                if (search == false) 
+                {
+                    userImput(" not found");
+                }
+                else
+                {
+                    userImput("found it! at " + string.Join(", ", results));
+                }
+            }
+            catch (FormatException e)
+            {
+                userImput(e.Message + "this is not a number");
+            }
+        }
+
+        public string userImput(string question)
+        {
+            Console.WriteLine(question);
+            return Console.ReadLine();
+        }
+
+        public bool searchTree(Node _current,int number)
+        {
+            current = _current;
+            if (current == null)
+            {
+                return false;
+            }
+            else if (number > current.data)
+            {
+                results.Add("left");
+                return searchTree(current.left, number);
+            }
+            else if (number < current.data)
+            {
+                results.Add("right");
+                return searchTree(current.right, number);
+            }
+            else if (number == current.data)
+            {
+                return true;
+            }
+             else return false;
+        }
 
         public void Add(int data)
         {
-            if (top == null)
+            if (root == null)
             {
                 Node NewNode = new Node(data);
-                top = NewNode;
+                root = NewNode;
                 return;
             }
-            Node currentnode = top;
+            Node currentnode = root;
             bool added = false;
             do
             {
                 if (data < currentnode.data)
                 {
-                    if (currentnode.leftCar == null)
+                    if (currentnode.left == null)
                     {
                         Node NewNode = new Node(data);
-                        currentnode.leftCar = NewNode;
+                        currentnode.left = NewNode;
                         added = true;
                     }
                     else
                     {
-                        currentnode = currentnode.leftCar;
+                        currentnode = currentnode.left;
                     }
                 }
                 if (data >= currentnode.data)
                 {
-                    if (currentnode.rightCar == null)
+                    if (currentnode.right == null)
                     {
                         Node newnode = new Node(data);
-                        currentnode.rightCar = newnode;
+                        currentnode.right = newnode;
                         added = true;
                     }
                     else
                     {
-                        currentnode = currentnode.rightCar;
+                        currentnode = currentnode.right;
                     }
                 }
-
-
             } while (!added);
-
         }
-        
-        //private void Add(ref Node n,int value)
-        //{
-
-        //}
-        
-        //public void Print( ref string newstring)
-        //{
-
-        //}
-
-
-   }
+    }
 }
